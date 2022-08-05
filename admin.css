@@ -1,0 +1,225 @@
+/* Styling for the Admin Control Panel */
+
+/* Removing Scroll Bar */
+
+body{
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+a{
+    text-decoration: none;
+}
+
+.headerContainer{
+    position: absolute;
+    width: 1440px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    
+    background: #146EBE;
+
+}
+
+.mainTitle{
+    list-style-type: none;
+    position: absolute;
+width: 400px;
+height: 54px;
+left: 23px;
+top: 7px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 54px;
+
+color: #FFFFFF;
+}
+
+.links{
+list-style-type: none;    
+width: 170px;
+height: 54px;
+right: 21px;
+padding-left: 1200px;
+bottom: 963px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 39px;
+
+
+color: #FFFFFF;
+
+}
+
+h1{
+
+width: 761px;
+height: 53px;
+left: 339px;
+top: 171px;
+padding-top: 100px;
+padding-left: 450px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 53px;
+
+color: #000000;
+
+    
+}
+
+.adminbox{
+    position: absolute;
+    width: 270px;
+    height: 185px;
+    left: 24px;
+    top: 270px;
+    
+    background: rgba(20, 110, 190, 0.45);
+    border-radius: 10px;
+    background-image: url(add_publication.png);
+    background-repeat: no-repeat;
+
+    background-position: center center;
+    background-size:80px;
+}
+
+.iconboxtext{
+    
+width: 201px;
+height: 33px;
+left: 79px;
+top: 411px;
+padding-left:55px ;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 15px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+/* Admin Box 2 */
+
+.adminbox2{
+    position: absolute;
+width: 270px;
+height: 185px;
+left: 360px;
+top: 270px;
+
+background: rgba(20, 110, 190, 0.45);
+border-radius: 10px;
+
+    background-image: url(delete_publication.png);
+    background-repeat: no-repeat;
+
+    background-position: center center;
+    background-size:55px;
+}
+
+.iconboxtext2{
+    
+width: 201px;
+height: 33px;
+left: 79px;
+top: 411px;
+padding-left:55px ;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 15px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+/*Admin Box 3 */
+
+.adminbox3{
+    position: absolute;
+    width: 270px;
+    height: 180px;
+    left: 710px;
+    top: 270px;
+    
+    background: rgba(20, 110, 190, 0.45);
+    border-radius: 10px;
+
+    background-image: url(update_publication.png);
+    background-repeat: no-repeat;
+
+    background-position: center center;
+    background-size:65px;
+}
+.iconboxtext3{
+    
+width: 201px;
+height: 33px;
+left: 79px;
+top: 411px;
+padding-left:55px ;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 15px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+/* Admin Box 4 */
+.adminbox4{
+    position: absolute;
+    width: 270px;
+    height: 180px;
+    left: 1070px;
+    top: 270px;
+    
+    background: rgba(20, 110, 190, 0.45);
+    border-radius: 10px;
+
+    background-image: url(book_report.png);
+    background-repeat: no-repeat;
+
+    background-position: center center;
+    background-size:65px;
+}
+.iconboxtext4{
+    
+width: 201px;
+height: 33px;
+left: 79px;
+top: 411px;
+padding-left:55px ;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 15px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}

@@ -1,0 +1,190 @@
+a{
+    text-decoration: none;
+}
+body{
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+/* Report Container */
+.borrowedContainer{
+    position: absolute;
+    width: 1440px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    
+    background: #146EBE;
+
+}
+
+.mainTitleReport{
+    list-style-type: none;
+    position: absolute;
+width: 400px;
+height: 54px;
+left: 23px;
+top: 7px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 54px;
+
+color: #FFFFFF;
+}
+
+/* List Styling on Menu */
+
+.linkBox1{
+    box-sizing: border-box;
+
+position: absolute;
+width: 200px;
+height: 69px;
+left: 968px;
+top: 0px;
+
+background: #146EBE;
+border: 1px solid #FFFFFF;
+}
+
+.linkText1{
+list-style-type: none;
+width: 132px;
+height: 39px;
+left: 1113px;
+top: 27px;
+padding-left: 55px;
+padding-top: 15px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 39px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+.linkBox2{
+    box-sizing: border-box;
+
+position: absolute;
+width: 200px;
+height: 69px;
+left: 1165px;
+top: 0px;
+
+background: #146EBE;
+border: 1px solid #FFFFFF;
+}
+.linkText2{
+list-style-type: none;
+width: 87px;
+height: 39px;
+left: 1355px;
+top: 27px;
+padding-left: 55px;
+padding-top: 15px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 39px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+
+}
+
+/* Body Styling */
+
+h1{
+    position: absolute;
+    width: 1052px;
+    height: 48px;
+    left: 500px;
+    top: 80px;
+    padding-left: 50px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 48px;
+    
+    color: #000000; 
+}
+
+h3{
+    position: absolute;
+width: 296px;
+height: 29px;
+left: 52px;
+top: 170px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 29px;
+/* identical to box height */
+
+text-align: center;
+
+color: #000000;
+}
+
+/* Delete Table Styling */ 
+.reportTable{
+    padding-top: 250px;
+    width: 100%;
+    font-family: 'Inter';
+}
+
+td{
+    padding: 10px;
+    text-align: center;
+    
+}
+
+tr:nth-child(even) {
+    background-color: #F0F0F0;
+}
+
+th{
+    background-color: #146EBE;
+    color: white;
+}
+
+tr:hover {
+    background-color: #146EBE;
+    color: #FFFFFF;
+}
+
+/* End of Delete Table Styling */
+
+footer{
+    /* A Group C Production ©2022 */
+
+width: 348px;
+height: 30px;
+left: 690px;
+top: 1052px;
+padding-top: 75px;
+padding-left: 600px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 30px;
+
+color: #000000;
+
+}
