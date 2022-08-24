@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,8 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
-
-    
-    <h1 class="main">PUBLICATION MANAGEMENT SYSTEM</h1>
-    <div class="signer">
+<h1 class="main">PUBLICATION MANAGEMENT SYSTEM</h1>
+<div class="signer">
     <form class="sign">
         <h1 class="title">Create a free account now</h1>
         <input class="input" type="text" placeholder="First Name">
@@ -26,9 +25,10 @@
         <br>
         <input class="input" type="submit" value="Sign Up" id="button">
         <br>
-        <p> Already Have an account? <a href="signin.html">Sign In</a></p>
-    </form> 
-    </div>
-    <footer id="pms">A Group C Production © 2022 All Rights Reserved.</footer>
+        <p> Already Have an account? <a href="signin.php">Sign In</a></p>
+    </form>
+</div>
+<footer id="pms">A Group C Production © 2022 All Rights Reserved.</footer>
 </body>
+
 </html>-
