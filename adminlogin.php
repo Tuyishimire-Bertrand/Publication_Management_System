@@ -14,16 +14,17 @@
 <body>
     <h1 class="main3">PUBLICATION MANAGEMENT SYSTEM</h1>
     <div class="signer3">
-        <form class="sign3">
-            <h1 class="title3">Enter Admin Credentials</h1>
+        <form class="sign2" method="POST" action="core.php">
+            <h1 class="title2">Enter User Credentials</h1>
             <br>
-            <input class="input3" type="text" placeholder="Username">
+            <input class="input2" type="text" name="username" placeholder="Username">
             <br>
-            <input class="input3" type="password" placeholder="Password">
+            <input class="input2" type="password" name="password" placeholder="Password">
             <br>
-            <input class="input3" type="submit" value="Sign In" id="button3">
+            <input class="input2" type="submit" value="Sign In" id="button2" name="adminlogin">
             <br>
-            <footer>A Group C Production © 2022 All Rights Reserved.</footer>
+        </form>
+        <footer>A Group C Production © 2022 All Rights Reserved.</footer>
 </body>
 
 </html>

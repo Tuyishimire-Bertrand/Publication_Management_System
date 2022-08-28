@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 26, 2022 at 02:47 PM
+-- Generation Time: Aug 28, 2022 at 11:16 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pms`
 --
-CREATE DATABASE IF NOT EXISTS `pms` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `pms`;
 
 -- --------------------------------------------------------
 
@@ -31,17 +29,18 @@ USE `pms`;
 
 DROP TABLE IF EXISTS `Admin`;
 CREATE TABLE IF NOT EXISTS `Admin` (
-  `adminId` varchar(25) NOT NULL,
+  `adminId` int(25) NOT NULL AUTO_INCREMENT,
   `username` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password` varchar(25) NOT NULL,
+  PRIMARY KEY (`adminId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Admin`
 --
 
 INSERT INTO `Admin` (`adminId`, `username`, `password`) VALUES
-('', 'admin', 'admin');
+(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 

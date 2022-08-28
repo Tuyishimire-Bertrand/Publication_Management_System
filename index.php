@@ -1,10 +1,5 @@
 <?php session_start(); 
-    require 'conn.php';
-    session_start();
- 
-    if(!ISSET($_SESSION['user'])){
-        header('location:index.php');
-    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
