@@ -17,7 +17,7 @@
             <a href="index.php" style="text-decoration: none;">
                 <li class="mainTitle">Publication Management System</li>
             </a>
-            <a href="#">
+            <a href="logout.php">
                 <li class="links">Log Out</li>
             </a>
         </ul>
