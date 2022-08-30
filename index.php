@@ -1,5 +1,10 @@
-<?php session_start(); 
+<?php session_start();
+include 'conn.php';
 
+
+$sql = "SELECT * from Publisher";
+$result=$conn->prepare($sql);
+$result->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,64 +45,79 @@
         <input type="text" name="searchbox" class="search">
         <input type="submit" value="" id="searchButton" name="search">
     </form>
-    <form method="post" action="core.php">
-        <table class="indexTable">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Year Of Publication</th>
-                    <th>pId</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Web Principles</td>
-                    <td>Bitwire GeorgeK</td>
-                    <td>2014</td>
-                    <td>W101</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                    <td>C Programming</td>
-                    <td>Mugejjera Emma</td>
-                    <td>2018</td>
-                    <td>C101</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                    <td>Systems Design</td>
-                    <td>Chongomweru Haleem</td>
-                    <td>2011</td>
-                    <td>S101</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                    <td>Leadership Skills</td>
-                    <td>Tony Oyana</td>
-                    <td>2004</td>
-                    <td>L101</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                    <td>Makerere at 100</td>
-                    <td>Nawangwe Barnabus</td>
-                    <td>2022</td>
-                    <td>M101</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                    <td>21st Century IT</td>
-                    <td>Flavia Kasujja</td>
-                    <td>2021</td>
-                    <td>F101</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="submit" id="borrowButton" name="borrow">Borrow</button>
-    </form>
+    <div>
+        <form method="post" action="core.php">
+            <table class="indexTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Year Of Publication</th>
+                        <th>pId</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php echo "It WOrks"?>
+                    <?php while ($list=$result->fetch(PDO::FETCH_ASSOC)) { ?>
+                    <tr>
+                        <td>
+                            <?php echo $list['title']; ?>
+                        </td>
+                        <td>
+                            <?php echo $list['author']; ?>
+                        </td>
+                        <td>
+                            <?php echo $list['yop']; ?>
+                        </td>
+                        <td>
+                            <?php echo $list['pId']; ?>
+                        </td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                    <?php } ?>
+                    <!-- <tr>
+    <td>C Programming</td>
+    <td>Mugejjera Emma</td>
+    <td>2018</td>
+    <td>C101</td>
+    <td><input type="checkbox"></td>
+</tr>
+<tr>
+    <td>Systems Design</td>
+    <td>Chongomweru Haleem</td>
+    <td>2011</td>
+    <td>S101</td>
+    <td><input type="checkbox"></td>
+</tr>
+<tr>
+    <td>Leadership Skills</td>
+    <td>Tony Oyana</td>
+    <td>2004</td>
+    <td>L101</td>
+    <td><input type="checkbox"></td>
+</tr>
+<tr>
+    <td>Makerere at 100</td>
+    <td>Nawangwe Barnabus</td>
+    <td>2022</td>
+    <td>M101</td>
+    <td><input type="checkbox"></td>
+</tr>
+<tr>
+    <td>21st Century IT</td>
+    <td>Flavia Kasujja</td>
+    <td>2021</td>
+    <td>F101</td>
+    <td><input type="checkbox"></td>
+</tr> -->
+                </tbody>
+            </table>
+            <button type="submit" id="borrowButton" name="borrow">Borrow</button>
+        </form>
+    </div>
     <footer>A Group C Production ©2022</footer>
 </body>
 
