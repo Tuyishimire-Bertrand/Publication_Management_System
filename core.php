@@ -94,8 +94,14 @@
 	}
 
 	if (isset($_POST['borrow'])) {
-		echo "Working";
+		echo "Borrow Working";
 	}
 
+	if (isset($_POST['delete'])) {
+		echo "Delete Working1";
+	}
 
+	if (isset($_POST['search'])) {
+		echo "Search Working1";
+	}
 ?>
