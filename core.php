@@ -2,6 +2,16 @@
 	session_start();
 	require_once 'conn.php';
  	
+	//Support Functions
+	//----------------------------------
+	function checkLogin()
+	{
+		if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    		header("location: login.php");
+    		exit;
+		}
+	}
+
  	//Login Function
  	//------------------------------------------
  	if(isset($_POST['login'])){
@@ -18,7 +28,10 @@
 			$row = $query->rowCount();
 			$fetch = $query->fetch();
 			if($row > 0) {
+				 // Store data in session variables
 				$_SESSION['user'] = $fetch['userId'];
+                $_SESSION["loggedin"] = true;
+                $_SESSION["username"] = $username;
 				header("location: index.php");
 			} else{
 				echo "
@@ -49,11 +62,13 @@
 			$fetch = $query->fetch();
 			if($row > 0) {
 				$_SESSION['user'] = $fetch['adminId'];
+                $_SESSION["loggedin"] = true;
+                $_SESSION["username"] = $username;
 				header("location: admin.php");
 			} else{
 				echo "
 				<script>alert('Invalid username or password')</script>
-				<script>window.location = 'signin.php'</script>
+				<script>window.location = 'adminlogin.php'</script>
 				";
 			}
 		}else{
@@ -95,6 +110,8 @@
 
 	if (isset($_POST['borrow'])) {
 		echo "Borrow Working";
+		checkLogin();
+
 	}
 
 	if (isset($_POST['delete'])) {

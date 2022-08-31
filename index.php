@@ -5,6 +5,7 @@ include 'conn.php';
 $sql = "SELECT * from Publisher";
 $result=$conn->prepare($sql);
 $result->execute();
+$row=1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +42,7 @@ $result->execute();
     </div>
     <h1>Welcome to the Publication Management System</h1>
     <h3>Search All Publications</h3>
-    <form action="core.php" method="post">
+    <form action="search.php" method="post">
         <input type="text" name="searchbox" class="search">
         <input type="submit" value="" id="searchButton" name="search">
     </form>
@@ -58,7 +59,6 @@ $result->execute();
                     </tr>
                 </thead>
                 <tbody>
-                    <?php echo "It WOrks"?>
                     <?php while ($list=$result->fetch(PDO::FETCH_ASSOC)) { ?>
                     <tr>
                         <td>
@@ -74,8 +74,10 @@ $result->execute();
                             <?php echo $list['pId']; ?>
                         </td>
                         <td>
-                            <input type="checkbox">
+                            <input type="checkbox" name="check<?php echo $row?>">
                         </td>
+                        <?php echo $row;
+                        $row=$row+1;?>
                     </tr>
                     <?php } ?>
                     <!-- <tr>

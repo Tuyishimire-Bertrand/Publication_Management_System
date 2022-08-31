@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+include 'conn.php';
+
+$sql = "SELECT * from Publisher";
+$result=$conn->prepare($sql);
+$result->execute();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,12 +34,15 @@
                     <a href="#">
                         <li class="linkText2">Logout</li>
                     </a>
+                </div>
             </ul>
         </div>
         <h1>Select items to be deleted</h1>
         <h3>Search All Publications</h3>
-        <input type="text" name="searchbox" class="search">
-        <input type="button" id="deleteSearchButton">
+        <form action="adminSearch.php" method="post">
+            <input type="text" name="searchbox" class="search">
+            <input type="submit" value="" id="deleteSearchButton" name="search">
+        </form>
         <form action="core.php" method="post">
             <table class="deleteTable">
                 <thead>
@@ -46,7 +55,26 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php while ($list=$result->fetch(PDO::FETCH_ASSOC)) { ?>
                     <tr>
+                        <td>
+                            <?php echo $list['title']; ?>
+                        </td>
+                        <td>
+                            <?php echo $list['author']; ?>
+                        </td>
+                        <td>
+                            <?php echo $list['yop']; ?>
+                        </td>
+                        <td>
+                            <?php echo $list['pId']; ?>
+                        </td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                    <?php } ?>
+                    <!-- <tr>
                         <td>Web Principles</td>
                         <td>Bitwire George</td>
                         <td>2014</td>
@@ -87,7 +115,7 @@
                         <td>2021</td>
                         <td>F101</td>
                         <td><input type="checkbox"></td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <button type="submit" id="deleteButton" name="delete">Delete</button>
