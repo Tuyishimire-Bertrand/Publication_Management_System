@@ -23,7 +23,7 @@
         </ul>
     </div>
     <h1>Welcome to the Admin Control Panel</h1>
-    <a href="#">
+    <a href="add.php">
         <div class="adminbox">
             <h3 class="iconboxtext">Add Publication</h3>
         </div>
@@ -33,7 +33,7 @@
             <h3 class="iconboxtext2">Delete Publication</h3>
         </div>
     </a>
-    <a href="#">
+    <a href="update.php">
         <div class="adminbox3">
             <h3 class="iconboxtext3">Update Publication</h3>
         </div>
