@@ -5,6 +5,28 @@ include 'conn.php';
 $sql = "SELECT * from Publisher where title like  concat('%',?,'%')";
 $result=$conn->prepare($sql);
 $result->execute([$_POST['searchbox']]);
+
+if (isset($_POST['delete'])) {
+            $checked = $_POST['checkbox'];
+            for($i=0; $i < count($checked); $i++){
+                $id = $checked[$i];
+                $query = $conn->prepare("DELETE from Publisher WHERE pId='$id'");
+                $query->execute();
+
+                if ($query==true) {
+                    echo "
+<script>
+alert('Book Detail Updated')
+</script>
+<script>
+window.location = 'delete.php'
+</script>
+";
+                }
+            }
+
+        }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

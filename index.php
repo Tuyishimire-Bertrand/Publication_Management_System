@@ -1,11 +1,41 @@
-<?php session_start();
+<?php 
 include 'conn.php';
-
+include 'core.php';
 
 $sql = "SELECT * from Publisher";
 $result=$conn->prepare($sql);
 $result->execute();
-$row=1;
+$row=0;
+?>
+<?php 
+if (isset($_POST['borrow'])) {
+            checkLogin();
+            //Check the user *** Buggy
+            echo $_SESSION['user'];
+
+
+            $checked = $_POST['checkbox'];
+            for($i=0; $i < count($checked); $i++){
+
+
+                $id = $checked[$i];
+                $query = $conn->prepare("INSERT into Publisher(?,?,?)");
+                $query->execute();
+
+                if ($query==true) {
+                    echo "
+<script>
+alert('Books Borrowed')
+</script>
+<script>
+window.location = 'index.php'
+</script>
+";
+                }
+            }
+
+        
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +77,7 @@ $row=1;
         <input type="submit" value="" id="searchButton" name="search">
     </form>
     <div>
-        <form method="post" action="core.php">
+        <form method="post" action="index.php">
             <table class="indexTable">
                 <thead>
                     <tr>
@@ -74,10 +104,8 @@ $row=1;
                             <?php echo $list['pId']; ?>
                         </td>
                         <td>
-                            <input type="checkbox" name="check<?php echo $row?>">
+                            <input type="checkbox" name="checkbox[]" value="<?php echo $list['pId']; ?>">
                         </td>
-                        <?php echo $row;
-                        $row=$row+1;?>
                     </tr>
                     <?php } ?>
                     <!-- <tr>

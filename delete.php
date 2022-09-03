@@ -4,6 +4,29 @@ include 'conn.php';
 $sql = "SELECT * from Publisher";
 $result=$conn->prepare($sql);
 $result->execute();
+ $row=0;
+
+if (isset($_POST['delete'])) {
+            $checked = $_POST['checkbox'];
+            for($i=0; $i < count($checked); $i++){
+                $id = $checked[$i];
+                $query = $conn->prepare("DELETE from Publisher WHERE pId='$id'");
+                $query->execute();
+
+                if ($query==true) {
+                    echo "
+<script>
+alert('Book Detail Updated')
+</script>
+<script>
+window.location = 'delete.php'
+</script>
+";
+                }
+            }
+
+        }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +66,7 @@ $result->execute();
             <input type="text" name="searchbox" class="search">
             <input type="submit" value="" id="deleteSearchButton" name="search">
         </form>
-        <form action="core.php" method="post">
+        <form action="delete.php" method="post">
             <table class="deleteTable">
                 <thead>
                     <tr>
@@ -70,55 +93,13 @@ $result->execute();
                             <?php echo $list['pId']; ?>
                         </td>
                         <td>
-                            <input type="checkbox">
+                            <input type="checkbox" name="checkbox[]" value="<?php echo $list['pId']; ?>">
                         </td>
                     </tr>
                     <?php } ?>
-                    <!-- <tr>
-                        <td>Web Principles</td>
-                        <td>Bitwire George</td>
-                        <td>2014</td>
-                        <td>W101</td>
-                        <td><input type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>C Programming</td>
-                        <td>Mugejjera Emma</td>
-                        <td>2018</td>
-                        <td>C101</td>
-                        <td><input type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>Systems Design</td>
-                        <td>Chongomweru Haleem</td>
-                        <td>2011</td>
-                        <td>S101</td>
-                        <td><input type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>Leadership Skills</td>
-                        <td>Tony Oyana</td>
-                        <td>2004</td>
-                        <td>L101</td>
-                        <td><input type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>Makerere at 100</td>
-                        <td>Nawangwe Barnabus</td>
-                        <td>2022</td>
-                        <td>M101</td>
-                        <td><input type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>21st Century IT</td>
-                        <td>Flavia Kasujja</td>
-                        <td>2021</td>
-                        <td>F101</td>
-                        <td><input type="checkbox"></td>
-                    </tr> -->
                 </tbody>
             </table>
-            <button type="submit" id="deleteButton" name="delete">Delete</button>
+            <button type="submit" id="deleteButton" name="delete" value="Delete">Delete</button>
         </form>
     </body>
 
