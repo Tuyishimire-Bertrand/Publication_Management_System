@@ -82,7 +82,7 @@
 
 	//Register Function
 	if(ISSET($_POST['register'])){
-		if($_POST['firstname'] != "" || $_POST['username'] != "" || $_POST['password'] != ""){
+		if($_POST['firstname'] != "" || $_POST['lastname'] != "" || $_POST['username'] != "" || $_POST['password'] != ""){
 			try{
 				$firstname = $_POST['firstname'];
 				$lastname = $_POST['lastname'];
@@ -91,28 +91,68 @@
 				// $password = md5($_POST['password']);
 				$password = $_POST['password'];
 
-				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$sql = "INSERT INTO `User` VALUES ('', '$firstname', '$lastname', '$username', '$password')";
-				$conn->exec($sql);
+				// $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$sql = "INSERT INTO User VALUES(userId, '$firstname', '$lastname', '$username', '$password')";
+				$insertion=$conn->prepare($sql);
+				$insertion->execute();
+
 			}catch(PDOException $e){
 				echo $e->getMessage();
 			}
 			$_SESSION['message']=array("text"=>"User successfully created.","alert"=>"info");
 			$conn = null;
-			header('location:index.php');
+			echo "
+				<script>alert('User Added')</script>
+				<script>window.location = 'signin.php'</script>
+			";
+			
 		}else{
 			echo "
 				<script>alert('Please fill up the required field!')</script>
-				<script>window.location = 'registration.php'</script>
+				<script>window.location = 'pms.php'</script>
 			";
 		}
 	}
 
-	if (isset($_POST['borrow'])) {
-		echo "Borrow Working";
-		checkLogin();
 
-	}
+if (isset($_POST['borrow'])) {
+            checkLogin();
+            //Check the user *** Buggy
+           
+             function getBookTitle($conn, $sql1, $parameters)
+				{
+				    $q = $conn->prepare($sql1);
+				    $q->execute($parameters);
+				    return $q->fetchColumn();
+
+				}
+            if(isset($_POST['checkbox'])){
+            	$username=$_SESSION['username'];
+            $checked = $_POST['checkbox'];
+            for($i=0; $i < count($checked); $i++){
+            	$sql1 = " SELECT title FROM Publisher WHERE pId = ? ";
+
+            	
+
+                $id = $checked[$i];
+
+				$title=getBookTitle($conn,$sql1,[$id]);
+			$sql2 = " INSERT INTO borrows VALUES (id,current_timestamp(), '$title', '$username' )";
+                $query = $conn->prepare($sql2);
+                $query->execute();
+                
+                if ($query==true) {
+                    echo "<script>alert('Book(s) Borrowed')</script>";
+                }
+            }
+            }else{
+            	echo "<script>alert('Please select what to borrow')</script>
+            	<script>window.location='index.php'</script>";
+            }
+            echo "<script>window.location = 'index.php'</script>";
+            
+        
+}
 
 	if (isset($_POST['delete'])) {
 		echo "Delete Working1";

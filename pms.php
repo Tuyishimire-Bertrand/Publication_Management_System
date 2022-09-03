@@ -12,19 +12,19 @@
 </head>
 <h1 class="main">PUBLICATION MANAGEMENT SYSTEM</h1>
 <div class="signer">
-    <form class="sign">
+    <form class="sign" action="core.php" method="post">
         <h1 class="title">Create a free account now</h1>
-        <input class="input" type="text" placeholder="First Name">
+        <input class="input" name="firstname" type="text" placeholder="First Name">
         <br>
-        <input class="input" type="text" placeholder="Last Name">
+        <input class="input" name="lastname" type="text" placeholder="Last Name">
         <br>
-        <input class="input" type="text" placeholder="Email">
+        <input class="input" name="email" type="text" placeholder="Email">
         <br>
-        <input class="input" type="text" placeholder="Username">
+        <input class="input" name="username" type="text" placeholder="Username">
         <br>
-        <input class="input" type="password" placeholder="Password">
+        <input class="input" name="password" type="password" placeholder="Password">
         <br>
-        <input class="input" type="submit" value="Sign Up" id="button">
+        <input class="input" name="register" type="submit" value="Sign Up" id="button">
         <br>
         <p> Already Have an account? <a href="signin.php">Sign In</a></p>
     </form>

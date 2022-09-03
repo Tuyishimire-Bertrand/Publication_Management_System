@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php; 
+session_start();
+session_destroy();
+$_SESSION['username']="";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

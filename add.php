@@ -9,41 +9,7 @@ include 'conn.php';
 
 function addTable()
 {
-    //Search And display
-/*if (isset($_POST['searchpId'])) {
-if ($_POST['pId']=="") {
-echo "
-<script>alert('Please Enter Book Id to search')</script>
-<script>window.location = 'update.php'</script>
-";
-}else{
-global $conn;
-$sql = "SELECT * FROM Publisher where pId=?";
-$result=$conn->prepare($sql);
-$result->execute([$_POST['pId']]);
-while ($list=$result->fetch(PDO::FETCH_ASSOC)) { ?>
-<tr>
-    <td>Book ID</td>
-    <td><input type="text" name="pId" value="<?php echo $list['pId']; ?>"></td>
-</tr>
-<tr>
-    <td>Title</td>
-    <td><input type="text" name="title" value="<?php echo $list['title']; ?>"></td>
-</tr>
-<tr>
-    <td>Author</td>
-    <td><input type="text" name="author" value="<?php echo $list['author']; ?>"></td>
-</tr>
-<tr>
-    <td>Year Of Publication</td>
-    <td><input type="text" name="yop" value="<?php echo $list['yop']; ?>"></td>
-</tr>
-<?php }}
-}else{?>
-<?php }*/
 
-
-//Save Data
 if (isset($_POST['save'])) {
     global $conn;
     $sql = "INSERT INTO Publisher values(?,?,?,?) ";
