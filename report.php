@@ -31,7 +31,7 @@ $row=0;
                     </a>
                 </div>
                 <div class="linkBox2">
-                    <a href="#">
+                    <a href="logout.php">
                         <li class="linkText2">Logout</li>
                     </a>
             </ul>
