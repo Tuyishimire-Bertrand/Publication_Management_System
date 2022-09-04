@@ -2,8 +2,8 @@ a{
     text-decoration: none;
 }
 body{
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: hidden; 
+    overflow-x: hidden; 
 }
 /* Index Container */
 .indexContainer{
@@ -63,7 +63,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 25px;
 line-height: 39px;
-/* identical to box height */
+
 
 
 color: #FFFFFF;
