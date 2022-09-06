@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 04, 2022 at 11:21 AM
+-- Generation Time: Sep 06, 2022 at 10:17 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `pms`
 --
+CREATE DATABASE IF NOT EXISTS `pms` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `pms`;
 
 -- --------------------------------------------------------
 
@@ -27,12 +29,19 @@ SET time_zone = "+00:00";
 -- Table structure for table `Admin`
 --
 
-CREATE TABLE `Admin` (
-  `adminId` int(25) NOT NULL,
+DROP TABLE IF EXISTS `Admin`;
+CREATE TABLE IF NOT EXISTS `Admin` (
+  `adminId` int(25) NOT NULL AUTO_INCREMENT,
   `username` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password` varchar(25) NOT NULL,
+  PRIMARY KEY (`adminId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncate table before insert `Admin`
+--
+
+TRUNCATE TABLE `Admin`;
 --
 -- Dumping data for table `Admin`
 --
@@ -46,13 +55,20 @@ INSERT INTO `Admin` (`adminId`, `username`, `password`) VALUES
 -- Table structure for table `borrows`
 --
 
-CREATE TABLE `borrows` (
-  `id` int(25) NOT NULL,
+DROP TABLE IF EXISTS `borrows`;
+CREATE TABLE IF NOT EXISTS `borrows` (
+  `id` int(25) NOT NULL AUTO_INCREMENT,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `title` varchar(25) NOT NULL,
-  `username` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `username` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncate table before insert `borrows`
+--
+
+TRUNCATE TABLE `borrows`;
 --
 -- Dumping data for table `borrows`
 --
@@ -67,7 +83,16 @@ INSERT INTO `borrows` (`id`, `timestamp`, `title`, `username`) VALUES
 (7, '2022-09-03 22:32:35', 'Makerere At 100', 'sensy'),
 (8, '2022-09-03 22:35:26', 'Business Administration', 'sensy'),
 (9, '2022-09-03 22:36:47', 'Business Administration', 'simo'),
-(10, '2022-09-03 22:36:47', 'Makerere At 100', 'simo');
+(10, '2022-09-03 22:36:47', 'Makerere At 100', 'simo'),
+(11, '2022-09-04 12:12:46', 'Business Administration', 'sensy'),
+(12, '2022-09-04 12:12:47', 'C Programming', 'sensy'),
+(13, '2022-09-04 12:16:41', 'Business Administration', 'sensy'),
+(14, '2022-09-04 12:16:41', 'C Programming', 'sensy'),
+(15, '2022-09-05 20:30:17', '21st Centuary IT', 'ojboni'),
+(16, '2022-09-06 18:33:42', 'C Programming', 'sensy'),
+(17, '2022-09-06 18:33:42', '21st Centuary IT', 'sensy'),
+(18, '2022-09-06 18:35:58', 'C Programming', 'ojboni'),
+(19, '2022-09-06 18:41:45', 'Leadership Skills', 'ojboni');
 
 -- --------------------------------------------------------
 
@@ -75,13 +100,20 @@ INSERT INTO `borrows` (`id`, `timestamp`, `title`, `username`) VALUES
 -- Table structure for table `Publisher`
 --
 
-CREATE TABLE `Publisher` (
+DROP TABLE IF EXISTS `Publisher`;
+CREATE TABLE IF NOT EXISTS `Publisher` (
   `pId` varchar(25) NOT NULL,
   `title` varchar(50) NOT NULL,
   `author` varchar(50) NOT NULL,
-  `yop` int(4) NOT NULL
+  `yop` int(4) NOT NULL,
+  PRIMARY KEY (`pId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncate table before insert `Publisher`
+--
+
+TRUNCATE TABLE `Publisher`;
 --
 -- Dumping data for table `Publisher`
 --
@@ -100,14 +132,21 @@ INSERT INTO `Publisher` (`pId`, `title`, `author`, `yop`) VALUES
 -- Table structure for table `User`
 --
 
-CREATE TABLE `User` (
-  `userId` int(25) NOT NULL,
+DROP TABLE IF EXISTS `User`;
+CREATE TABLE IF NOT EXISTS `User` (
+  `userId` int(25) NOT NULL AUTO_INCREMENT,
   `fname` varchar(25) NOT NULL,
   `sname` varchar(25) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password` varchar(250) NOT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncate table before insert `User`
+--
+
+TRUNCATE TABLE `User`;
 --
 -- Dumping data for table `User`
 --
@@ -116,56 +155,6 @@ INSERT INTO `User` (`userId`, `fname`, `sname`, `username`, `password`) VALUES
 (1, 'Ojok', 'Boniface', 'ojboni', '12345678'),
 (2, 'Onen', 'Sam Sensy', 'sensy', '12345678'),
 (3, 'Okullu ', 'Simon', 'simo', '12345678');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Admin`
---
-ALTER TABLE `Admin`
-  ADD PRIMARY KEY (`adminId`);
-
---
--- Indexes for table `borrows`
---
-ALTER TABLE `borrows`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `Publisher`
---
-ALTER TABLE `Publisher`
-  ADD PRIMARY KEY (`pId`);
-
---
--- Indexes for table `User`
---
-ALTER TABLE `User`
-  ADD PRIMARY KEY (`userId`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Admin`
---
-ALTER TABLE `Admin`
-  MODIFY `adminId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `borrows`
---
-ALTER TABLE `borrows`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `User`
---
-ALTER TABLE `User`
-  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
