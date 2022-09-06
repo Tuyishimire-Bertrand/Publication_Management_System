@@ -1,6 +1,8 @@
-<?php session_start(); 
+<?php 
+include 'sess.php';
 include 'conn.php';
-$sql = "SELECT * from borrows";
+
+$sql = "SELECT * from borrows order by id desc";
 $result=$conn->prepare($sql);
 $result->execute();
 $row=0;

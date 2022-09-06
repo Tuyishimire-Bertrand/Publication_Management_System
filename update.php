@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+include 'sess.php';
 include 'conn.php';
 
 
